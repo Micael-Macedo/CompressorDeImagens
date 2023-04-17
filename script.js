@@ -6,8 +6,12 @@ quality = document.getElementById("quality")
 ImageWitdh = 0
 ImageHeight = 0
 imageSrc = ""
+fileName = ""
 file.addEventListener("change", (e) => {
     let userFile = e.target.files[0]
+    fileName = userFile.name;
+    fileName = fileName.split(".")
+    fileName = fileName[0]
     let fileReader = new FileReader()
     fileReader.onload = () =>{
         src = fileReader.result
@@ -76,6 +80,13 @@ function baixarImagem() {
     let new_image = document.createElement("img")
     let new_image_url = context.canvas.toDataURL("image/jpeg", checkQuality)
     new_image.src = new_image_url
-    $("#newImage").empty()
-    $("#newImage").append(new_image)
+    
+    let linkFile = document.createElement("a");
+    linkFile.href = new_image_url
+    linkFile.target = "_blank"
+    linkFile.download = `${fileName}${canvas.width }x${canvas.height}.png`
+    linkFile.click();
+
+
+
 }
