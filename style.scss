@@ -15,9 +15,7 @@ body{
     #drop-file {
         min-height: 300px;
         min-width: 400px;
-        max-height: 500px;
-        max-width: 500px;
-        padding: 20px;
+        max-width: 550px;
         background-color: rgb(27, 27, 109);
         border-radius: 30px;
         position: relative;
@@ -39,8 +37,11 @@ body{
             font-size: 36px;
         }
         .drop-content{
+            display: grid;
+            place-content: center;
             width: 100%;
             img{
+                border-radius: 30px;
                 width: 100%;
             }
         }
